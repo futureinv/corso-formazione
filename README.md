@@ -17,7 +17,15 @@ Per caricare un'immagine, copia il link "RAW" e usa questo codice:
 
 ## 💡 Suggerimento
 Il link "RAW" lo trovi cliccando col destro sull'immagine e "apri immagine in un'altra scheda", assicurati che il link inizi con `https://raw.githubusercontent.com/`.
+### Nell'Editor di Hydra prova a scrivere questo esempio
+```javascript
+s0.initImage("https://url-della-tua-immagine.jpg")
 
+src(s0)
+  .pixelate(20, 20) // Il pixelate che abbiamo visto prima!
+  .modulate(noise(3))
+  .out()
+```
 
 ## 🖱️ Opzione: Caricamento Rapido (Drag & Drop)
 Se vuoi usare un'immagine che hai sul tuo computer senza caricarla online, copia e incolla questo codice in Hydra. Una volta eseguito, trascina semplicemente il file sulla finestra del browser:
@@ -41,6 +49,7 @@ Per visualizzare l'immagine esegui nell'editor (dopo il trascinamento)
 ```javascript
 src(s0).out()
 ```
+
 # 🛠️ Configurazione Reactivision per Hydra
 
 Questa sezione descrive la catena software necessaria per trasformare i **Fiducial** (oggetti fisici) in segnali di controllo per Hydra.

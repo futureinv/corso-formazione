@@ -2,7 +2,7 @@
 repository per materiale audio e foto
 # 🎨 Archivio Digitale - Corso Live Coding
 
-Benvenuti nell'archivio materiali. Qui trovate le immagini da usare per le esercitazioni con Hydra e Processing.
+Benvenuti nell'archivio materiali. Qui trovate le immagini da usare per le esercitazioni con Hydra e Strudel.
 
 ## 🚀 Istruzioni per Hydra
 Per caricare un'immagine, copia il link "RAW" e usa questo codice:

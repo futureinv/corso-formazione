@@ -17,3 +17,29 @@ Per caricare un'immagine, copia il link "RAW" e usa questo codice:
 
 ## 💡 Suggerimento
 Se l'immagine non appare, assicurati che il link inizi con `https://raw.githubusercontent.com/`.
+
+## 🖱️ Opzione alternativa: Caricamento Rapido (Drag & Drop)
+Se vuoi usare un'immagine che hai sul tuo computer senza caricarla online, copia e incolla questo codice sul terminal della pagina web su cui lavori con Hydra. Una volta eseguito, trascina semplicemente il file sulla finestra del browser:
+
+
+## 🖱️ Opzione: Caricamento Rapido (Drag & Drop)
+Se vuoi usare un'immagine che hai sul tuo computer senza caricarla online, copia e incolla questo codice in Hydra. Una volta eseguito, trascina semplicemente il file sulla finestra del browser:
+
+```javascript
+// 1. Attiva l'ascolto del trascinamento
+document.addEventListener('drop', (event) => {
+  event.preventDefault();
+  const file = event.dataTransfer.files[0];
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    s0.initImage(e.target.result);
+    console.log("Immagine pronta in s0!");
+  };
+  reader.readAsDataURL(file);
+});
+document.addEventListener('dragover', (e) => e.preventDefault());
+
+// 2. Visualizza l'immagine (esegui dopo il trascinamento)
+src(s0).out()
+
+

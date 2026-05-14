@@ -1,10 +1,11 @@
-# corso-formazione
+# Hydra-corso-formazione
 repository per materiale audio e foto
-# 🎨 Archivio Digitale - Corso Live Coding
+e istruzioni varie
+## 🎨 Archivio Digitale - Corso Live Coding
 
 Benvenuti nell'archivio materiali. Qui trovate le immagini da usare per le esercitazioni con Hydra e Strudel.
 
-## 🚀 Istruzioni per Hydra
+### 🚀 Istruzioni per Hydra
 Per caricare un'immagine, copia il link "RAW" e usa questo codice:
 `s0.initImage("INCOLLA_QUI_IL_LINK")`
 
@@ -15,7 +16,7 @@ Per caricare un'immagine, copia il link "RAW" e usa questo codice:
 *   **Future3** [Link Quadro 1](url_raw_qui)
 *   **Future3** [Link Quadro 1](url_raw_qui) -->
 
-## 💡 Suggerimento
+### 💡 Suggerimento
 Il link "RAW" lo trovi cliccando col destro sull'immagine e "apri immagine in un'altra scheda", assicurati che il link inizi con `https://raw.githubusercontent.com/`.
 ### Nell'Editor di Hydra prova a scrivere questo esempio
 ```javascript
@@ -27,7 +28,7 @@ src(s0)
   .out()
 ```
 
-## 🖱️ Opzione: Caricamento Rapido (Drag & Drop)
+### 🖱️ Opzione: Caricamento Rapido (Drag & Drop)
 Se vuoi usare un'immagine che hai sul tuo computer senza caricarla online, copia e incolla questo codice in Hydra. Una volta eseguito, trascina semplicemente il file sulla finestra del browser:
 
 ```javascript
@@ -50,7 +51,7 @@ Per visualizzare l'immagine esegui nell'editor (dopo il trascinamento)
 src(s0).out()
 ```
 
-# 🛠️ Configurazione Reactivision per Hydra
+## 🛠️ Configurazione Reactivision per Hydra
 
 Questa sezione descrive la catena software necessaria per trasformare i **Fiducial** (oggetti fisici) in segnali di controllo per Hydra.
 
@@ -73,9 +74,9 @@ Questa sezione descrive la catena software necessaria per trasformare i **Fiduci
 
 ---
 
-## 💻 Script di Configurazione
+### 💻 Script di Configurazione
 
-### 1. Sulla Console di Hydra (F12)
+#### 1. Sulla Console di Hydra (F12)
 Copia e incolla questo codice per attivare l'ascolto MIDI nel browser:
 
 ```javascript

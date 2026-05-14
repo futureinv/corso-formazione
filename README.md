@@ -63,8 +63,8 @@ Questa sezione descrive la catena software necessaria per trasformare i **Fiduci
     * Si occupa solo della traduzione (**TUIO -> MIDI**).
     * 📂 Clicca [qui](./immagini-archivio/) per scaricare i programmi in Processing per tradurre cursorTUIO->MIDI e markerTUIO->MIDI
     * Usa le librerie **TUIO** e **MIDIbus**.
-    * I fiducial dallo **0 al 10** sono mappati per funzionare come manopole.
-    * Percorso locale: ``
+    * I marker dallo **0 al 10** sono mappati per funzionare come manopole (rotazione).
+    * I cursor sono mappati per funzionare come fader usando l'ordinata (y).
 * **loopMIDI**
     * Fa da ponte virtuale.
     * Software: [Download loopMIDI](https://www.tobias-erichsen.de/software/loopmidi.html)

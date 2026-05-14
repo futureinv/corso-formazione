@@ -58,9 +58,10 @@ Questa sezione descrive la catena software necessaria per trasformare i **Fiduci
 ### 🔗 La Catena di Collegamento
 
 * **Reactivision**
-    * Si occupa solo della visione (TUIO).
+    * Si occupa solo della visione (TUIO) (https://reactivision.sourceforge.net/).
 * **Processing**
     * Si occupa solo della traduzione (**TUIO -> MIDI**).
+    * [📂 Clicca qui per scaricare le Immagini d'Archivio](./immagini-archivio/)
     * Usa le librerie **TUIO** e **MIDIbus**.
     * I fiducial dallo **0 al 10** sono mappati per funzionare come manopole.
     * Percorso locale: ``

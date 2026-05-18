@@ -71,38 +71,38 @@ Questa sezione descrive la catena software necessaria per trasformare i **Fiduci
     * Porta da creare: `reacTIVision_Bus`
 * **Hydra**
     * Riceve e trasforma.
-     * E' necessario uno Script di Configurazione perché Hydra possa leggere un segnle MIDI da scrivere sulla Console di Hydra (F12)
-       * Copia e incolla questo codice per attivare l'ascolto MIDI nel browser:
-         * esempi da riportare sull'Editor di Hydra
-         ```javascript
-         // register WebMIDI
-         navigator.requestMIDIAccess()
-         .then(onMIDISuccess, onMIDIFailure);
-
-         function onMIDISuccess(midiAccess) {
-              console.log(midiAccess);
-              var inputs = midiAccess.inputs;
-              var outputs = midiAccess.outputs;
-              for (var input of midiAccess.inputs.values()){
-                  input.onmidimessage = getMIDIMessage;
-              }
-          }
-          
-          function onMIDIFailure() {
-              console.log('Could not access your MIDI devices.');
-          }
-          
-          // create an array to hold our cc values and init to a normalized value
-          var cc = Array(128).fill(0.5)
-          
-          getMIDIMessage = function(midiMessage) {
-              var arr = midiMessage.data    
-              var index = arr[1]
-              // console.log('Midi received on cc#' + index + ' value:' + arr[2]) // monitor
-              var val = (arr[2]+1)/128.0  // normalize CC values to 0.0 - 1.0
-              cc[index] = val
-          }
-          ```
+     * E' necessario uno Script di Configurazione perché Hydra possa leggere un segnle MIDI 
+       * Copia e incolla questo codice sulla Console di Hydra (F12) per attivare l'ascolto MIDI nel browser:
+        ```javascript
+       // register WebMIDI
+        navigator.requestMIDIAccess()
+            .then(onMIDISuccess, onMIDIFailure);
+        
+        function onMIDISuccess(midiAccess) {
+            console.log(midiAccess);
+            var inputs = midiAccess.inputs;
+            var outputs = midiAccess.outputs;
+            for (var input of midiAccess.inputs.values()){
+                input.onmidimessage = getMIDIMessage;
+            }
+        }
+        
+        function onMIDIFailure() {
+            console.log('Could not access your MIDI devices.');
+        }
+        
+        //create an array to hold our cc values and init to a normalized value
+        var cc=Array(128).fill(0.5)
+        
+        getMIDIMessage = function(midiMessage) {
+            var arr = midiMessage.data    
+            var index = arr[1]
+            //console.log('Midi received on cc#' + index + ' value:' + arr[2])    // uncomment to monitor incoming Midi
+            var val = (arr[2]+1)/128.0  // normalize CC values to 0.0 - 1.0
+            cc[index]=val
+        }
+        ```
+        
         * Esempi di mappatura per controllare i parametri con i Fiducial (o i knob del Korg NanoKontrol2):
           ```javascript
           // Esempio 1: Controllo colore con i primi tre knob (CC 16, 17, 18)
@@ -116,4 +116,33 @@ Questa sezione descrive la catena software necessaria per trasformare i **Fiduci
             .scale(() => cc[1])
             .out()
           ```
+        * esempio per selezionare le immagini usando la posizione
+          
+  
+         ```javascript    
+        //esempio per selezionare le immagini usando la posizione
+        s0.initImage("https://picsum.photos/id/10/800/600")
+        s1.initImage("https://picsum.photos/id/20/800/600")
+        s2.initImage("https://picsum.photos/id/30/800/600")
+        s3.initImage("https://picsum.photos/id/40/800/600")
+        
+        // Assicuriamoci che la tua manopola sia mappata correttamente
+        const m1 = () => cc[0] // Cambia il 16 con il tuo CC funzionante
+        
+        solid(0,0,0)
+          // Mostra s0 se la manopola è tra 0.00 e 0.25
+          .layer(src(s0).color(1,1,1, () => (m1() >= 0.00 && m1() < 0.25) ? 1 : 0))
+          
+          // Mostra s1 se la manopola è tra 0.25 e 0.50
+          .layer(src(s1).color(1,1,1, () => (m1() >= 0.25 && m1() < 0.50) ? 1 : 0))
+          
+          // Mostra s2 se la manopola è tra 0.50 e 0.75
+          .layer(src(s2).color(1,1,1, () => (m1() >= 0.50 && m1() < 0.75) ? 1 : 0))
+          
+          // Mostra s3 se la manopola è tra 0.75 e 1.00
+          .layer(src(s3).color(1,1,1, () => (m1() >= 0.75 && m1() <= 1.00) ? 1 : 0))
+          
+          .out()
+        ```
+
   * Documentazione: [Hydra MIDI Learning](https://hydra.ojack.xyz/hydra-docs-v2/docs/learning/sequencing-and-interactivity/midi/)

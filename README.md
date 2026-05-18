@@ -127,7 +127,7 @@ Questa sezione descrive la catena software necessaria per trasformare i **Fiduci
         s3.initImage("https://picsum.photos/id/40/800/600")
         
         // Assicuriamoci che la tua manopola sia mappata correttamente
-        const m1 = () => cc[0] // Cambia il 16 con il tuo CC funzionante
+        const m1 = () => cc[0]
         
         solid(0,0,0)
           // Mostra s0 se la manopola è tra 0.00 e 0.25
